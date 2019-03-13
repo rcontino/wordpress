@@ -9,7 +9,7 @@ require( ABSPATH . WPINC . '/option.php' );
 
 add_filter( 'default_content', 'my_editor_content' );
 function my_editor_content( $content ) {
-	$content = "<a href='http://localhost/wordpress/wp-admin/post-new.php'>Submit Activity</a>";
+	$content = "<a href='http://localhost/wordpress/'>Submit Activity</a>";
 	return $content;
 }
 
