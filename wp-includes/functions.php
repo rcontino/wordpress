@@ -10,7 +10,15 @@ require( ABSPATH . WPINC . '/option.php' );
 add_filter( 'default_content', 'my_editor_content' );
 function my_editor_content( $content ) {
 	$content = "<a href='http://127.0.0.1:5000/'>Submit Activity</a>";
-	return $content;
+
+	global $wpdb;
+	$result = $wpdb->get_results ( "SELECT `name`, `description` FROM `proposed_activities`" );
+	$str;
+	foreach ( $result as $print )   {
+		$str = $str . '<tr>' . '<td>' . $print->name.'</td>' . '<td>' . $print->description.'</td>' . '</tr>';
+	}
+
+	return $str;
 }
 
 /**
